@@ -1,0 +1,3 @@
+[submodule "ext/FNA3D-cs"]
+	path = ext/FNA3D-cs
+	url = https://github.com/bottlenoselabs/FNA3D-cs.git
