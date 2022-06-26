@@ -7,3 +7,6 @@
 [submodule "ext/FAudio-cs"]
 	path = ext/FAudio-cs
 	url = https://github.com/bottlenoselabs/FAudio-cs.git
+[submodule "ext/msbuild-tools"]
+	path = ext/msbuild-tools
+	url = https://github.com/bottlenoselabs/msbuild-tools.git
