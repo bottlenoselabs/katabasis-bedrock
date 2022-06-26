@@ -1,0 +1,9 @@
+# JetBrains
+.idea/
+
+# Build artifacts
+bin/
+obj/
+
+# macOS
+.DS_Store
