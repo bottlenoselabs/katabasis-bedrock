@@ -1,3 +1,6 @@
 [submodule "ext/FNA3D-cs"]
 	path = ext/FNA3D-cs
 	url = https://github.com/bottlenoselabs/FNA3D-cs.git
+[submodule "ext/SDL-cs"]
+	path = ext/SDL-cs
+	url = https://github.com/bottlenoselabs/SDL-cs
