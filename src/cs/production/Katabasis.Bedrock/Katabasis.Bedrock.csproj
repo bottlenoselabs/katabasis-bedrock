@@ -13,14 +13,6 @@
     <EnableDefaultRuntimeIdentifier>true</EnableDefaultRuntimeIdentifier>
   </PropertyGroup>
 
-  <!-- NuGet packages -->
-  <ItemGroup>
-    <PackageReference Include="bottlenoselabs.MSBuild.Tools" Version="1.1.3">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-
   <!-- Meta projects that pull in native assemblies based on runtime -->
   <ItemGroup Condition="'$(RuntimeIdentifier)' == 'win-x64'">
     <ProjectReference Include="../Katabasis.Native.win-x64/Katabasis.Native.win-x64.csproj" ReferenceOutputAssembly="false" />
