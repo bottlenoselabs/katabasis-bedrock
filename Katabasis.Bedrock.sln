@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katabasis.Bedrock", "src\cs\production\Katabasis.Bedrock\Katabasis.Bedrock.csproj", "{6FC4C8D2-9639-4182-8A5A-1B4551321A75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katabasis.Bedrock.Bindings", "src\cs\production\Katabasis.Bedrock.Bindings\Katabasis.Bedrock.Bindings.csproj", "{6FC4C8D2-9639-4182-8A5A-1B4551321A75}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katabasis.Bedrock.linux-x64", "src\cs\production\Katabasis.Bedrock.linux-x64\Katabasis.Bedrock.linux-x64.csproj", "{549D38ED-9E19-44FC-B3E5-A216B59E10AD}"
 EndProject

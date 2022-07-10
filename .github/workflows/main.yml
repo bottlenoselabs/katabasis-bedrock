@@ -83,22 +83,22 @@ jobs:
         dotnet-sdk-version: "6.0.x"
         solution-or-project: "${{ github.workspace }}/Katabasis.Bedrock.sln"
     
-    - name: "Upload NuGet packages (MyGet): Katabasis.Bedrock"
+    - name: "Upload NuGet packages (MyGet): Bindings"
       shell: bash
       if: ${{ matrix.platform.os == 'ubuntu-18.04' && ( github.event_name == 'push' || startsWith(github.ref, 'refs/tags/v') ) }}
-      run: dotnet nuget push "./**/*Katabasis.Bedrock.nupkg" --source https://www.myget.org/F/bottlenoselabs/api/v3/index.json --skip-duplicate --api-key ${{ secrets.MYGET_ACCESS_TOKEN }}
+      run: dotnet nuget push "./**/*Katabasis.Bedrock.Bindings*.nupkg" --source https://www.myget.org/F/bottlenoselabs/api/v3/index.json --skip-duplicate --api-key ${{ secrets.MYGET_ACCESS_TOKEN }}
 
-    - name: "Upload NuGet packages (NuGet): Katabasis.Bedrock"
+    - name: "Upload NuGet packages (NuGet): Bindings"
       shell: bash
       if: "${{ matrix.platform.os == 'ubuntu-18.04' && startsWith(github.ref, 'refs/tags/v') }}"
-      run: dotnet nuget push "./**/*Katabasis.Bedrock.nupkg" --source https://api.nuget.org/v3/index.json --skip-duplicate --api-key ${{ secrets.NUGET_ACCESS_TOKEN }}
+      run: dotnet nuget push "./**/*Katabasis.Bedrock.Bindings*.nupkg" --source https://api.nuget.org/v3/index.json --skip-duplicate --api-key ${{ secrets.NUGET_ACCESS_TOKEN }}
 
-    - name: "Upload NuGet packages (MyGet): Katabasis.Bedrock.*"
+    - name: "Upload NuGet packages (MyGet): ${{ matrix.platform.rid }}"
       shell: bash
       if: ${{ github.event_name == 'push' || startsWith(github.ref, 'refs/tags/v') }}
-      run: dotnet nuget push "./**/*Katabasis.Bedrock.*.nupkg" --source https://www.myget.org/F/bottlenoselabs/api/v3/index.json --skip-duplicate --api-key ${{ secrets.MYGET_ACCESS_TOKEN }}
+      run: dotnet nuget push "./**/*Katabasis.Bedrock.${{ matrix.platform.rid }}*.nupkg" --source https://www.myget.org/F/bottlenoselabs/api/v3/index.json --skip-duplicate --api-key ${{ secrets.MYGET_ACCESS_TOKEN }}
 
-    - name: "Upload NuGet packages (NuGet): Katabasis.Bedrock.*"
+    - name: "Upload NuGet packages (NuGet): ${{ matrix.platform.rid }}"
       shell: bash
       if: ${{ startsWith(github.ref, 'refs/tags/v') }}
-      run: dotnet nuget push "./**/*Katabasis.Bedrock.*.nupkg" --source https://api.nuget.org/v3/index.json --skip-duplicate --api-key ${{ secrets.NUGET_ACCESS_TOKEN }}
+      run: dotnet nuget push "./**/*Katabasis.Bedrock.${{ matrix.platform.rid }}*.nupkg" --source https://api.nuget.org/v3/index.json --skip-duplicate --api-key ${{ secrets.NUGET_ACCESS_TOKEN }}
