@@ -10,3 +10,6 @@
 [submodule "ext/imgui-cs"]
 	path = ext/imgui-cs
 	url = https://github.com/bottlenoselabs/imgui-cs.git
+[submodule "ext/flecs-cs"]
+	path = ext/flecs-cs
+	url = https://github.com/flecs-hub/flecs-cs
