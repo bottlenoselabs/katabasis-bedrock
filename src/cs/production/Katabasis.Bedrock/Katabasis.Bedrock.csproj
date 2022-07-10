@@ -10,7 +10,6 @@
   <PropertyGroup>
     <EnableAnalyzers>true</EnableAnalyzers>
     <EnableAnalyzersStyleCop>false</EnableAnalyzersStyleCop>
-    <EnableDefaultRuntimeIdentifier>true</EnableDefaultRuntimeIdentifier>
   </PropertyGroup>
 
   <!-- Meta projects that pull in native assemblies based on runtime -->
