@@ -94,13 +94,13 @@ function download_fna_libraries() {
     # Move files to specific places...
     echo "Moving files ..."
     if [[ "$TARGET_BUILD_OS" == "windows" ]]; then
-        mv $FNA_LIBS_DIR/x64/libtheorafile.dll $LIBS_DIR/libtheorafile.dll
+        mv $FNA_LIBS_DIR/FNA-libs-main/x64/libtheorafile.dll $LIBS_DIR/libtheorafile.dll
     elif [[ "$TARGET_BUILD_OS" == "macos" ]]; then
-        mv $FNA_LIBS_DIR/osx/libMoltenVK.dylib $LIBS_DIR/libMoltenVK.dylib #FNA3D
-        mv $FNA_LIBS_DIR/osx/libvulkan.1.dylib $LIBS_DIR/libvulkan.dylib #FNA3D
-        mv $FNA_LIBS_DIR/osx/libtheorafile.dylib $LIBS_DIR/libtheorafile.dylib
+        mv $FNA_LIBS_DIR/FNA-libs-main/osx/libMoltenVK.dylib $LIBS_DIR/libMoltenVK.dylib #FNA3D
+        mv $FNA_LIBS_DIR/FNA-libs-main/osx/libvulkan.1.dylib $LIBS_DIR/libvulkan.dylib #FNA3D
+        mv $FNA_LIBS_DIR/FNA-libs-main/osx/libtheorafile.dylib $LIBS_DIR/libtheorafile.dylib
     elif [[ "$TARGET_BUILD_OS" == "linux" ]]; then
-        mv $FNA_LIBS_DIR/lib64/libtheorafile.so $LIBS_DIR/libtheorafile.so
+        mv $FNA_LIBS_DIR/FNA-libs-main/lib64/libtheorafile.so $LIBS_DIR/libtheorafile.so
     fi
     echo "Finished moving files!"
 
