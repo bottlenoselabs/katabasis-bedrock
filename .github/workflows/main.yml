@@ -68,6 +68,7 @@ jobs:
     - name: "Clone Git repository"
       uses: actions/checkout@v2
       with:
+        submodules: 'recursive'
         fetch-depth: 0
         
     - name: "Download native libraries"
