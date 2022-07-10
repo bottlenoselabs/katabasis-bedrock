@@ -30,7 +30,7 @@ mkdir -p $LIBS_DIR
 
 # Build SDL
 echo "Building SDL..."
-$DIRECTORY/ext/sdl-cs/library.sh $TARGET_BUILD_OS $TARGET_BUILD_ARCH
+$DIRECTORY/ext/SDL-cs/library.sh $TARGET_BUILD_OS $TARGET_BUILD_ARCH
 if [[ $? -ne 0 ]]; then exit $?; fi
 mv -v $DIRECTORY/ext/sdl-cs/lib/* $LIBS_DIR
 # if [[ $? -ne 0 ]]; then exit $?; fi
