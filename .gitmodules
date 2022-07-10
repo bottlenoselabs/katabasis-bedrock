@@ -13,3 +13,6 @@
 [submodule "ext/flecs-cs"]
 	path = ext/flecs-cs
 	url = https://github.com/flecs-hub/flecs-cs
+[submodule "ext/scripts"]
+	path = ext/scripts
+	url = https://github.com/bottlenoselabs/scripts.git
