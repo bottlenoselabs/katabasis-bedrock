@@ -89,10 +89,10 @@ jobs:
     
     - name: "Upload NuGet packages (MyGet)"
       shell: bash
-      if: ${{ matrix.platform.os == 'ubuntu-18.04' && ( github.event_name == 'push' || startsWith(github.ref, 'refs/tags/v') ) }}
+      if: ${{ github.event_name == 'push' || startsWith(github.ref, 'refs/tags/v') }}
       run: dotnet nuget push "./**/*.nupkg" --source https://www.myget.org/F/bottlenoselabs/api/v3/index.json --skip-duplicate --api-key ${{ secrets.MYGET_ACCESS_TOKEN }}
 
     - name: "Upload NuGet packages (NuGet)"
       shell: bash
-      if: "${{ matrix.platform.os == 'ubuntu-18.04' && startsWith(github.ref, 'refs/tags/v') }}"
+      if: "${{ startsWith(github.ref, 'refs/tags/v') }}"
       run: dotnet nuget push "./**/*.nupkg" --source https://api.nuget.org/v3/index.json --skip-duplicate --api-key ${{ secrets.NUGET_ACCESS_TOKEN }}
