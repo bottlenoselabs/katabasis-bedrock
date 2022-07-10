@@ -88,7 +88,7 @@ jobs:
       run:
         VERSION="$(date +%Y.%-m).$(git rev-list --count ${GITHUB_REF##*/})"
         dotnet build --nologo --verbosity minimal --configuration Release -p:Version=$VERSION
-        if [ "${{ matrix.platform.os }}" == "ubuntu-18.04" ]; then
+        if [[ "${{ matrix.platform.os }}" == "ubuntu-18.04" ]]; then
           dotnet pack "./src/cs/production/Katabasis.Bedrock/Katabasis.Bedrock.csproj" --nologo --verbosity minimal --configuration Release --no-build -p:PackageVersion="$VERSION"
         fi
         dotnet pack "./src/cs/production/Katabasis.Bedrock.${{ matrix.platform.rid }}/Katabasis.Bedrock.${{ matrix.platform.rid }}.csproj" --nologo --verbosity minimal --configuration Release --no-build -p:PackageVersion="$VERSION"
