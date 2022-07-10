@@ -3,15 +3,14 @@
   <!-- MSBuild Settings -->
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>Katabasis.Platform</RootNamespace>
+    <RootNamespace />
   </PropertyGroup>
 
   <!-- MSBuild.Tools settings -->
   <PropertyGroup>
     <EnableAnalyzers>true</EnableAnalyzers>
-    <EnableAnalyzersStyleCop>true</EnableAnalyzersStyleCop>
+    <EnableAnalyzersStyleCop>false</EnableAnalyzersStyleCop>
     <EnableDefaultRuntimeIdentifier>true</EnableDefaultRuntimeIdentifier>
-    <EnableAnalyzersStyleCop>true</EnableAnalyzersStyleCop>
   </PropertyGroup>
 
   <!-- NuGet packages -->
@@ -36,19 +35,22 @@
     <ProjectReference Include="../Katabasis.Native.linux-x64/Katabasis.Native.linux-x64.csproj" ReferenceOutputAssembly="false" />
   </ItemGroup>
 
-  <!-- C# bindings for native assemblies -->
+  <!-- C# bindings and/or wrappers for native assemblies -->
   <ItemGroup>
     <Compile Include="$(GitRepositoryPath)/ext/SDL-cs/SDL.cs">
-      <Link>SDL/SDL.cs</Link>
+      <Link>SDL/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Compile>
     <Compile Include="$(GitRepositoryPath)/ext/FAudio-cs/FAudio.cs">
-      <Link>FAudio/FAudio.cs</Link>
+      <Link>FAudio/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Compile>
     <Compile Include="$(GitRepositoryPath)/ext/FNA3D-cs/FNA3D.cs">
-      <Link>FNA3D/FNA3D.cs</Link>
+      <Link>FNA3D/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Compile>
     <Compile Include="$(GitRepositoryPath)/ext/imgui-cs/imgui.cs">
-      <Link>ImGui/imgui.cs</Link>
+      <Link>ImGui/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Compile>
+    <Compile Include="$(GitRepositoryPath)/ext/flecs-cs/src/cs/production/Flecs/**/*.cs" >
+      <Link>Flecs/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Compile>
   </ItemGroup>
 

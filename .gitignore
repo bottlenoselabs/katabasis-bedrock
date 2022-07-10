@@ -1,6 +1,9 @@
 # JetBrains
 .idea/
 
+# Native libraries
+/lib/*
+
 # Build artifacts
 bin/
 obj/

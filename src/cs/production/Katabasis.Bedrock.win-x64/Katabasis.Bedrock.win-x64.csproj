@@ -3,7 +3,7 @@
     <!-- MSBuild Settings -->
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <RootNamespace>Katabasis.Platform</RootNamespace>
+        <RootNamespace />
         <RuntimeIdentifier>osx-arm64</RuntimeIdentifier>
         <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
         <IncludeBuildOutput>false</IncludeBuildOutput>

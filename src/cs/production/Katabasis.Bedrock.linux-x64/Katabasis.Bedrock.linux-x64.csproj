@@ -3,7 +3,7 @@
     <!-- MSBuild Settings -->
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <RootNamespace>Katabasis.Platform</RootNamespace>
+        <RootNamespace />
         <RuntimeIdentifier>osx-arm64</RuntimeIdentifier>
         <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
         <IncludeBuildOutput>false</IncludeBuildOutput>
@@ -13,9 +13,9 @@
 
     <!-- Dynamic link libraries -->
     <ItemGroup>
-        <Content Include="$(GitRepositoryPath)lib/osx-x64/*.dylib">
+        <Content Include="$(GitRepositoryPath)lib/linux-x64/*.dylib">
             <Link>%(Filename)%(Extension)</Link>
-            <PackagePath>runtimes/osx-x64/native/%(Filename)%(Extension)</PackagePath>
+            <PackagePath>runtimes/linux-x64/native/%(Filename)%(Extension)</PackagePath>
             <Pack>true</Pack>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
