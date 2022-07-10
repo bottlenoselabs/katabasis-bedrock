@@ -85,7 +85,7 @@ jobs:
 
     - name: "Build + pack .NET solution"
       shell: bash
-      run: source "${{ github.workspace }}/build.sh" "${GITHUB_REF##*/})" "${{ matrix.platform.os }}" "${{ matrix.platform.rid }}"
+      run: source "${{ github.workspace }}/build.sh" "${GITHUB_REF##*/}" "${{ matrix.platform.os }}" "${{ matrix.platform.rid }}"
     
     - name: "Upload NuGet packages (MyGet)"
       shell: bash
