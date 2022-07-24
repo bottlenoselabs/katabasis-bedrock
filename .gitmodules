@@ -10,6 +10,3 @@
 [submodule "ext/imgui-cs"]
 	path = ext/imgui-cs
 	url = https://github.com/bottlenoselabs/imgui-cs.git
-[submodule "ext/scripts"]
-	path = ext/scripts
-	url = https://github.com/bottlenoselabs/scripts.git
