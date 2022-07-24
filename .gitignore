@@ -13,3 +13,6 @@ obj/
 
 # Packed NuGet packages
 /nupkg/*
+
+# Scripts
+/ext/scripts

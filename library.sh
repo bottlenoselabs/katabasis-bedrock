@@ -6,6 +6,8 @@
 # OUTPUT: The built shared library if successful, or nothing upon first failure.
 
 DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+git clone "https://github.com/bottlenoselabs/scripts" "$DIRECTORY/ext/scripts" 2> /dev/null || git -C "$DIRECTORY/ext/scripts" pull
+
 . $DIRECTORY/ext/scripts/c/library/input.sh
 
 TARGET_BUILD_OS=`get_target_build_os "$1"`
