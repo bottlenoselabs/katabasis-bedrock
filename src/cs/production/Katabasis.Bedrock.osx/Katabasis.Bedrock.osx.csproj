@@ -4,7 +4,7 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <RootNamespace />
-        <RuntimeIdentifier>osx-arm64</RuntimeIdentifier>
+        <RuntimeIdentifier>osx</RuntimeIdentifier>
         <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <IncludeSymbols>false</IncludeSymbols>
