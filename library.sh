@@ -6,9 +6,12 @@
 # OUTPUT: The built shared library if successful, or nothing upon first failure.
 
 DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-git clone "https://github.com/bottlenoselabs/scripts" "$DIRECTORY/ext/scripts" 2> /dev/null || git -C "$DIRECTORY/ext/scripts" pull
+if [[ -z $SCRIPTS_DIRECTORY ]]; then
+    SCRIPTS_DIRECTORY="$DIRECTORY/ext/scripts"
+    git clone "https://github.com/bottlenoselabs/scripts" "$SCRIPTS_DIRECTORY" 2> /dev/null 1> /dev/null || git -C "$SCRIPTS_DIRECTORY" pull 1> /dev/null
+fi
 
-. $DIRECTORY/ext/scripts/c/library/input.sh
+. $SCRIPTS_DIRECTORY/c/library/utility.sh
 
 TARGET_BUILD_OS=`get_target_build_os "$1"`
 TARGET_BUILD_ARCH=`get_target_build_arch "$TARGET_BUILD_OS" "$2"`
@@ -35,9 +38,9 @@ echo "Building SDL..."
 $DIRECTORY/ext/SDL-cs/library.sh $TARGET_BUILD_OS $TARGET_BUILD_ARCH
 if [[ $? -ne 0 ]]; then exit $?; fi
 mv -v $DIRECTORY/ext/sdl-cs/lib/* $LIBS_DIR
-# if [[ $? -ne 0 ]]; then exit $?; fi
+if [[ $? -ne 0 ]]; then exit $?; fi
 if [[ "$TARGET_BUILD_OS" == "windows" ]]; then
-    SDL_LIBRARY_FILE_PATH="$LIBS_DIR/SDL2.dll"
+    SDL_LIBRARY_FILE_PATH="$LIBS_DIR/SDL2.lib"
 elif [[ "$TARGET_BUILD_OS" == "macos" ]]; then
     SDL_LIBRARY_FILE_PATH="$LIBS_DIR/libSDL2.dylib"
 elif [[ "$TARGET_BUILD_OS" == "linux" ]]; then
