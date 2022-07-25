@@ -37,7 +37,7 @@ mkdir -p $LIBS_DIR
 echo "Building SDL..."
 $DIRECTORY/ext/SDL-cs/library.sh $TARGET_BUILD_OS $TARGET_BUILD_ARCH
 if [[ $? -ne 0 ]]; then exit $?; fi
-mv -v $DIRECTORY/ext/sdl-cs/lib/* $LIBS_DIR
+mv -v $DIRECTORY/ext/SDL-cs/lib/* $LIBS_DIR
 if [[ $? -ne 0 ]]; then exit $?; fi
 if [[ "$TARGET_BUILD_OS" == "windows" ]]; then
     SDL_LIBRARY_FILE_PATH="$LIBS_DIR/SDL2.lib"
@@ -50,7 +50,7 @@ fi
 
 # Build FNA3D
 echo "Building FNA3D... $SDL_LIBRARY_FILE_PATH"
-$DIRECTORY/ext/FNA3D-cs/library.sh $TARGET_BUILD_OS $TARGET_BUILD_ARCH $DIRECTORY/ext/sdl-cs/ext/SDL/include $SDL_LIBRARY_FILE_PATH
+$DIRECTORY/ext/FNA3D-cs/library.sh $TARGET_BUILD_OS $TARGET_BUILD_ARCH $DIRECTORY/ext/SDL-cs/ext/SDL/include $SDL_LIBRARY_FILE_PATH
 if [[ $? -ne 0 ]]; then exit $?; fi
 mv -v $DIRECTORY/ext/FNA3D-cs/lib/* $LIBS_DIR
 if [[ $? -ne 0 ]]; then exit $?; fi
@@ -58,7 +58,7 @@ echo "Building FNA3D finished!"
 
 # Build FAudio
 echo "Building FAudio..."
-$DIRECTORY/ext/FAudio-cs/library.sh $TARGET_BUILD_OS $TARGET_BUILD_ARCH $DIRECTORY/ext/sdl-cs/ext/SDL/include $SDL_LIBRARY_FILE_PATH
+$DIRECTORY/ext/FAudio-cs/library.sh $TARGET_BUILD_OS $TARGET_BUILD_ARCH $DIRECTORY/ext/SDL-cs/ext/SDL/include $SDL_LIBRARY_FILE_PATH
 if [[ $? -ne 0 ]]; then exit $?; fi
 mv -v $DIRECTORY/ext/FAudio-cs/lib/* $LIBS_DIR
 if [[ $? -ne 0 ]]; then exit $?; fi
