@@ -10,3 +10,6 @@
 [submodule "ext/imgui-cs"]
 	path = ext/imgui-cs
 	url = https://github.com/bottlenoselabs/imgui-cs.git
+[submodule "ext/Theorafile-cs"]
+	path = ext/Theorafile-cs
+	url = https://github.com/bottlenoselabs/Theorafile-cs.git
