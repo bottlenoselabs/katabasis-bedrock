@@ -64,6 +64,14 @@ mv -v $DIRECTORY/ext/FAudio-cs/lib/* $LIBS_DIR
 if [[ $? -ne 0 ]]; then exit $?; fi
 echo "Building FAudio finished!"
 
+# Build Theorafile
+echo "Building Theorafile..."
+$DIRECTORY/ext/Theorafile-cs/library.sh $TARGET_BUILD_OS $TARGET_BUILD_ARCH
+if [[ $? -ne 0 ]]; then exit $?; fi
+mv -v $DIRECTORY/ext/Theorafile-cs/lib/* $LIBS_DIR
+if [[ $? -ne 0 ]]; then exit $?; fi
+echo "Building Theorafile finished!"
+
 # Build cimgui
 echo "Building imgui..."
 $DIRECTORY/ext/imgui-cs/library.sh $TARGET_BUILD_OS $TARGET_BUILD_ARCH
@@ -98,14 +106,9 @@ function download_fna_libraries() {
 
     # Move files to specific places...
     echo "Moving files ..."
-    if [[ "$TARGET_BUILD_OS" == "windows" ]]; then
-        mv $FNA_LIBS_DIR/FNA-libs-main/x64/libtheorafile.dll $LIBS_DIR/libtheorafile.dll
-    elif [[ "$TARGET_BUILD_OS" == "macos" ]]; then
+    if [[ "$TARGET_BUILD_OS" == "macos" ]]; then
         mv $FNA_LIBS_DIR/FNA-libs-main/osx/libMoltenVK.dylib $LIBS_DIR/libMoltenVK.dylib #FNA3D
         mv $FNA_LIBS_DIR/FNA-libs-main/osx/libvulkan.1.dylib $LIBS_DIR/libvulkan.dylib #FNA3D
-        mv $FNA_LIBS_DIR/FNA-libs-main/osx/libtheorafile.dylib $LIBS_DIR/libtheorafile.dylib
-    elif [[ "$TARGET_BUILD_OS" == "linux" ]]; then
-        mv $FNA_LIBS_DIR/FNA-libs-main/lib64/libtheorafile.so $LIBS_DIR/libtheorafile.so
     fi
     echo "Finished moving files!"
 

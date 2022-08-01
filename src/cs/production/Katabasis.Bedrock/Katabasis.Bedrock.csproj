@@ -37,11 +37,11 @@
     <Compile Include="$(GitRepositoryPath)/ext/FNA3D-cs/FNA3D.cs">
       <Link>FNA3D/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Compile>
+    <Compile Include="$(GitRepositoryPath)/ext/Theorafile-cs/Theorafile.cs" >
+      <Link>Theorafile/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Compile>
     <Compile Include="$(GitRepositoryPath)/ext/imgui-cs/imgui.cs">
       <Link>ImGui/%(RecursiveDir)%(Filename)%(Extension)</Link>
-    </Compile>
-    <Compile Include="$(GitRepositoryPath)/ext/flecs-cs/src/cs/production/Flecs/**/*.cs" >
-      <Link>Flecs/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Compile>
   </ItemGroup>
 
