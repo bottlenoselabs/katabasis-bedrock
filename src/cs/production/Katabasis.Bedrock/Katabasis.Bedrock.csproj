@@ -4,6 +4,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace />
+    <NoWarn>$(NoWarn),CS1591</NoWarn>
   </PropertyGroup>
 
   <!-- MSBuild.Tools settings -->
@@ -34,10 +35,16 @@
     <Compile Include="$(GitRepositoryPath)/ext/FAudio-cs/FAudio.cs">
       <Link>FAudio/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Compile>
+    <Compile Include="$(GitRepositoryPath)/ext/FAudio-cs/src/cs/production/FAudio/**/*.cs">
+      <Link>FAudio/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Compile>
     <Compile Include="$(GitRepositoryPath)/ext/FNA3D-cs/FNA3D.cs">
       <Link>FNA3D/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Compile>
     <Compile Include="$(GitRepositoryPath)/ext/Theorafile-cs/Theorafile.cs" >
+      <Link>Theorafile/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Compile>
+    <Compile Include="$(GitRepositoryPath)/ext/Theorafile-cs/src/cs/production/Theorafile/**/*.cs">
       <Link>Theorafile/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Compile>
     <Compile Include="$(GitRepositoryPath)/ext/imgui-cs/imgui.cs">
