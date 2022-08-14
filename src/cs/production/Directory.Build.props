@@ -4,8 +4,7 @@
 
     <PropertyGroup>
         <IsPackable>true</IsPackable>
-        <IncludeSymbols>true</IncludeSymbols>
-        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <IncludeSymbols>false</IncludeSymbols>
     </PropertyGroup>
 
 </Project>
