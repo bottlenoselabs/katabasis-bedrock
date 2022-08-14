@@ -4,12 +4,12 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace />
-    <NoWarn>$(NoWarn),CS1591</NoWarn>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
   </PropertyGroup>
 
   <!-- MSBuild.Tools settings -->
   <PropertyGroup>
-    <EnableAnalyzers>true</EnableAnalyzers>
+    <EnableAnalyzers>false</EnableAnalyzers>
     <EnableAnalyzersStyleCop>false</EnableAnalyzersStyleCop>
   </PropertyGroup>
 
