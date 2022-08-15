@@ -16,7 +16,7 @@ on:
 
 jobs:
 
-  build-native-libraries-job:
+  build-job:
     name: "Build native libraries ${{ matrix.platform.rid }}"
     runs-on: ${{ matrix.platform.os }}
     strategy:
@@ -47,42 +47,3 @@ jobs:
       with:
         name: "native-libraries-${{ matrix.platform.rid }}"
         path: './lib/${{ matrix.platform.rid }}'
-
-  dotnet-job:
-    name: ".NET"
-    needs: [build-native-libraries-job]
-    runs-on: ${{ matrix.platform.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        platform:
-        - { name: Windows x64, os: windows-latest, shell: bash, rid: win-x64 }
-        - { name: macOS x64+arm64, os: macos-latest, shell: bash, rid: osx }
-        # Using Ubuntu 18.04 because of GitHub Actions Runner bug: https://github.com/actions/runner/issues/1819#issuecomment-1098641309
-        - { name: Linux x64, os: ubuntu-18.04, shell: bash, rid: linux-x64 }
-    defaults:
-      run:
-        shell: ${{ matrix.platform.shell }}
-    steps:
-
-    - name: "Clone Git repository"
-      uses: actions/checkout@v2
-      with:
-        submodules: 'recursive'
-        fetch-depth: 0
-        
-    - name: "Download native libraries"
-      uses: actions/download-artifact@v1
-      with:
-        name: "native-libraries-${{ matrix.platform.rid }}"
-        path: './lib/${{ matrix.platform.rid }}'
-
-    - name: "Install .NET"
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '6.0.x'
-        include-prerelease: true
-
-    - name: "Build .NET solution"
-      shell: bash
-      run: dotnet build --nologo --verbosity minimal --configuration Release

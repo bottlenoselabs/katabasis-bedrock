@@ -1,8 +1,0 @@
-<Project>
-
-    <!-- NuGet packages -->
-    <ItemGroup>
-        <PackageReference Include="bottlenoselabs.MSBuild.Tools" Version="1.1.6" PrivateAssets="all" />
-    </ItemGroup>
-
-</Project>
