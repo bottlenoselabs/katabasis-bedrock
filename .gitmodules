@@ -13,3 +13,6 @@
 [submodule "ext/Theorafile-cs"]
 	path = ext/Theorafile-cs
 	url = https://github.com/bottlenoselabs/Theorafile-cs.git
+[submodule "ext/flecs-cs"]
+	path = ext/flecs-cs
+	url = https://github.com/flecs-hub/flecs-cs
